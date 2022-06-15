@@ -6,5 +6,3 @@ goto next
 :next
 md %folder%
 subst z: %folder% 
-subst s: c:\start
-copy c:\windows\*.xml c:\start
