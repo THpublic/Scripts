@@ -5,4 +5,4 @@ rmdir "%folder%" /s /q
 goto next
 :next
 md %folder%
-subst z: %folder% 
+subst S: %folder% 
