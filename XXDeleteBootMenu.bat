@@ -1,1 +1,1 @@
-bcdedit /delete {9dea862c-5cdd-4e70-acc1-f32b344d4795} /f
+bcdedit /timeout 1
