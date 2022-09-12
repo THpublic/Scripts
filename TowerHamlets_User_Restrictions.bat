@@ -48,7 +48,7 @@ reg add "HKEY_Users\Public_User\Software\Microsoft\Windows\CurrentVersion\Explor
 
 netsh advfirewall firewall set rule group="Network Discovery" new enable=No
 
-bcdedit /timeout 0
+bcdedit /timeout 1
 
 cscript "C:\Program Files\Microsoft Office\Office16\OSPP.VBS" /act
 
