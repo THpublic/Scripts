@@ -50,5 +50,6 @@ netsh advfirewall firewall set rule group="Network Discovery" new enable=No
 
 bcdedit /timeout 1
 
+cscript "C:\Program Files\Microsoft Office\Office16\OSPP.VBS" /act
 
 
