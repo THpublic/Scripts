@@ -1,1 +1,1 @@
-bcdedit /timeout 0
+bcdedit /timeout 1
