@@ -70,6 +70,6 @@ reg add "HKU\Public_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDri
 
 netsh advfirewall firewall set rule group="Network Discovery" new enable=No
 
-bcdedit /timeout 1
+REM bcdedit /timeout 1
 
 cscript "C:\Program Files\Microsoft Office\Office16\OSPP.VBS" /act
