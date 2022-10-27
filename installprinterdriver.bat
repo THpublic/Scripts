@@ -1,0 +1,1 @@
+cscript "C:\Windows\System32\Printing_Admin_Scripts\en-US\prndrvr.vbs" -a -m "KX (PCL6) v4 Driver for Universal Printing" -i "C:\Drivers\Kxv4Driver_signed\Kxv4Driver\en\PrnDrv\PCL Driver\64bit\win81 and newer\prnkycl1.inf"
