@@ -1,0 +1,69 @@
+;
+; Netloan virtual printer driver installation file for Windows Vista and later
+;
+
+[Version]
+Signature="$Windows NT$"
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+Provider="Lorensbergs Ltd"
+CatalogFile=netloanR2.cat
+DriverVer=09/04/2017,1.0.0.0
+
+;
+; Manufacturer section
+;
+
+[Manufacturer]
+"Lorensbergs" = Lorensbergs, NTx86, NTamd64
+
+;
+; Models section
+;
+
+[Lorensbergs.NTx86]
+"Virtual netloan printer R2" = DriverInstall_VistaAndLater, NetloanR2, NetloanVirtualPrinterR2
+
+[Lorensbergs.NTamd64]
+"Virtual netloan printer R2" = DriverInstall_VistaAndLater, NetloanR2, NetloanVirtualPrinterR2
+
+;
+; DDInstall Sections for Windows Vista or later
+;
+
+[DriverInstall_VistaAndLater]
+CopyFiles=@NETLOANR2.GPD
+DataFile=NETLOANR2.GPD
+CoreDriverSections="{D20EA372-DD35-4950-9ED8-A6335AFE79F0},UNIDRV.OEM,UNIDRV_DATA"
+
+;
+; These sections are to identify the driver as "Package Aware" to allow them to
+; take advantage of features such as "Package Point-and-Print" in Vista and later
+;
+
+[PrinterPackageInstallation.x86]
+PackageAware=TRUE
+CoreDriverDependencies={D20EA372-DD35-4950-9ED8-A6335AFE79F0}
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+CoreDriverDependencies={D20EA372-DD35-4950-9ED8-A6335AFE79F0}
+
+;
+; Source Media Information Sections
+;
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames.x86]
+1   = %MediaDescription%,,,
+ 
+[SourceDisksNames.amd64]
+1   = %MediaDescription%,,,
+
+[SourceDisksFiles]
+NETLOANR2.GPD = 1
+
+[Strings]
+MediaDescription = "Lorensbergs netloan printer driver package"
