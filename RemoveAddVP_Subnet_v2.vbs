@@ -26,7 +26,7 @@ For Each IPConfig In IPConfigSet
           arrIPAddress = split(IPConfig.IPAddress(0) ,".")
           strIPRange = arrIPAddress(0) & "." & arrIPAddress(1) & "." & arrIPAddress(2) & ".0"
           select case strIPRange
-              case "192.168.10.0"
+              case "192.168.9.0"
 			objNetwork.AddWindowsPrinterConnection "\\BGL-DFC\Virtual Netloan Printer"
 			SetDefaultPrinter("\\BGL-DFC\Virtual Netloan Printer")
                case "192.168.25.0"
