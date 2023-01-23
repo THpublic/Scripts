@@ -12,4 +12,6 @@ $destination = 'c:\Windows\System32\AddVP_Reg.bat'
 #Download the file
 Invoke-WebRequest -Uri $source -OutFile $destination
 
+Start-Sleep -s 5
+
 Start-Process -FilePath "c:\Windows\System32\AddVP_Reg.bat" -Wait
