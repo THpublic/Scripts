@@ -26,13 +26,24 @@ For Each IPConfig In IPConfigSet
           arrIPAddress = split(IPConfig.IPAddress(0) ,".")
           strIPRange = arrIPAddress(0) & "." & arrIPAddress(1) & "." & arrIPAddress(2) & ".0"
           select case strIPRange
-              case "192.168.9.0"
+		case "192.168.9.0"
 			objNetwork.AddWindowsPrinterConnection "\\BGL-DFC\Virtual Netloan Printer"
 			SetDefaultPrinter("\\BGL-DFC\Virtual Netloan Printer")
-               case "192.168.25.0"
+               	case "192.168.10.0"
 			objNetwork.AddWindowsPrinterConnection "\\CTL-DFC\Virtual Netloan Printer"
 			SetDefaultPrinter("\\CTL-DFC\Virtual Netloan Printer")
-          end select
+		case "192.168.16.0"
+			objNetwork.AddWindowsPrinterConnection "\\ISB-DFC\Virtual Netloan Printer"
+			SetDefaultPrinter("\\ISB-DFC\Virtual Netloan Printer")
+		case "192.168.6.0"
+			objNetwork.AddWindowsPrinterConnection "\\ISCS_DFC\Virtual Netloan Printer"
+			SetDefaultPrinter("\\ISCS_DFC\Virtual Netloan Printer")
+		case "192.168.8.0"
+			objNetwork.AddWindowsPrinterConnection "\\ISCW-DFC\Virtual Netloan Printer"
+			SetDefaultPrinter("\\ISCW-DFC\Virtual Netloan Printer")
+		case "192.168.7.0"
+			objNetwork.AddWindowsPrinterConnection "\\ISW-DFC\Virtual Netloan Printer"
+			SetDefaultPrinter("\\ISW-DFC\Virtual Netloan Printer")
      end if
 next
 
