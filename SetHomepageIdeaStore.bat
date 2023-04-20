@@ -10,4 +10,3 @@ Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v "ShowHomeButton" /t REG_D
 Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v "HomepageLocation" /t REG_SZ /d "https://www.ideastore.co.uk" /f
 Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v "NewTabPageLocation" /t REG_SZ /d "https://www.ideastore.co.uk" /f
 Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs" /v "1" /t REG_SZ /d "https://www.ideastore.co.uk" /f
-Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs" /v "2" /t REG_SZ /d "https://www.ideastore.co.uk" /f
