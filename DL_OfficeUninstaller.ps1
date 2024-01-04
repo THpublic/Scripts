@@ -5,7 +5,7 @@ $Url = "https://github.com/THpublic/Scripts/raw/main/OfficeRemova-OffScrubl.zip"
 
 $DownloadZipFile = "C:\" + $(Split-Path -Path $Url -Leaf)
 
-$ExtractPath = "C:\Windows\System32"
+$ExtractPath = "C:\Windows\System32\OfficeRemova-OffScrubl"
 
 Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
 
