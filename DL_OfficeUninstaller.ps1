@@ -1,7 +1,7 @@
 #github url to download zip file
 #Assign zip file url to local variable
 
-New-Item -Path 'C:\Windows\System32\OfficeRemova-OffScrubl' -ItemType Directory
+New-Item -Path "C:\Windows\System32\OfficeRemova-OffScrubl" -ItemType Directory
 
 $Url = "https://github.com/THpublic/Scripts/raw/main/OfficeRemova-OffScrubl.zip"
 
