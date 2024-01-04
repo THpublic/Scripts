@@ -18,4 +18,4 @@ $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items()
 $ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
 Start-Process $ExtractPath
 
-Cscript.exe "C:\windows\system32\OFFICEREMOVA-offscrubl\o365\OffScrubc2r.vbs” ALL /Quiet /NoCancel /Force /OSE
+cscript.exe "C:\windows\system32\OFFICEREMOVA-offscrubl\2016\OffScrub_O16msi.vbs” ALL /Quiet /NoCancel /Force /OSE
