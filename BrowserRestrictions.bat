@@ -120,7 +120,7 @@ rem 1 - URL reporting in Edge diagnostic data enabled
 reg add "HKLM\Software\Policies\Microsoft\Edge" /v "UrlDiagnosticDataEnabled" /t REG_DWORD /d "0" /f
 
 rem 1 - Edge User Data Profile Location
-reg add "HKLM\Software\Policies\Microsoft\Edge" /v "UserDataDir" /t REG_SZ /d "Z:\Edge\User Data" /f
+reg add "HKLM\Software\Policies\Microsoft\Edge" /v "UserDataDir" /t REG_SZ /d "" /f
 
 rem 1 - Allow video capture
 reg add "HKLM\Software\Policies\Microsoft\Edge" /v "VideoCaptureAllowed" /t REG_DWORD /d "0" /f
