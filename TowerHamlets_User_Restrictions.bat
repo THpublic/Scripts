@@ -1,5 +1,7 @@
 reg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
 
+reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d "0" /f
+
 reg add "HKEY_Users\Netloan_User\Software\Policies\Microsoft\Windows\System" /f
 
 reg add "HKEY_Users\Netloan_User\Software\Policies\Microsoft\Windows\System" /v "DisableCMD" /t REG_DWORD /d 2 /f
