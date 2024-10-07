@@ -20,3 +20,4 @@ $DriverSuffix = If ($NaRegions.Contains($RegionName)) {
 }
 
 Add-Printer -Name $Name -PortName $Id -DriverName "Princh Cloud Printer $DriverSuffix" -PrintProcessor "winprint"
+Set-DefaultPrinter -Name $Name
