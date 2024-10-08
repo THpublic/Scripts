@@ -21,3 +21,5 @@ $DriverSuffix = If ($NaRegions.Contains($RegionName)) {
 
 Add-Printer -Name $Name -PortName $Id -DriverName "Princh Cloud Printer $DriverSuffix" -PrintProcessor "winprint"
 
+$Printer = Get-CimInstance -Class Win32_Printer -Filter "Name='Idea Store Bow Public Printer'"
+Invoke-CimMethod -InputObject $Printer -MethodName SetDefaultPrinter 
