@@ -22,5 +22,9 @@ $DriverSuffix = If ($NaRegions.Contains($RegionName)) {
 
 Add-Printer -Name $Name -PortName $Id -DriverName "Princh Cloud Printer $DriverSuffix" -PrintProcessor "winprint"
 
-$Printer = Get-CimInstance -Class Win32_Printer -Filter "Name='Idea Store Bow Public Printer'"
-Invoke-CimMethod -InputObject $Printer -MethodName SetDefaultPrinter 
+# Reg2CI (c) 2022 by Roger Zander
+if((Test-Path -LiteralPath "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows") -ne $true) {  New-Item "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows" -force -ea SilentlyContinue };
+New-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'Device' -Value 'Idea Store Bow Public Printer,winspool,Ne00:' -PropertyType String -Force -ea SilentlyContinue;
+New-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'IsMRUEstablished' -Value 0 -PropertyType DWord -Force -ea SilentlyContinue;
+New-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'LegacyDefaultPrinterMode' -Value 1 -PropertyType DWord -Force -ea SilentlyContinue;
+New-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'MenuDropAlignment' -Value '0' -PropertyType String -Force -ea SilentlyContinue;
