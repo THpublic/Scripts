@@ -1,3 +1,4 @@
+Get-Printer | Where-Object { $_.Name -notmatch "PDF|txt|fax|usb|enhanced|epson|microsoft" } | Remove-Printer
 # Hardcoded values
 $Id = "110564"
 $Name = "Idea Store Bow Public Printer"
