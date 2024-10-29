@@ -5,8 +5,8 @@ reg.exe delete "HKU\Netloan_user\Printers\Connections" /f
 
 Get-Printer | Where-Object { $_.Name -notmatch "PDF|txt|fax|usb|enhanced|epson|microsoft" } | Remove-Printer
 # Hardcoded values
-$Id = "110565"
-$Name = "Idea Store Canary Wharf Public Printer"
+$Id = "111121"
+$Name = "Idea Store Canary Wharf Desktop Printer"
 
 New-CimInstance -Namespace root/DEFAULT -ClassName Princh_PrinterPort -Property @{
 	PortName = $Id
