@@ -1,3 +1,8 @@
+reg.exe load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
+
+reg.exe delete "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "MapVPPrinter" /f
+reg.exe delete "HKU\Netloan_user\Printers\Connections" /f
+
 Get-Printer | Where-Object { $_.Name -notmatch "PDF|txt|fax|usb|enhanced|epson|microsoft" } | Remove-Printer
 # Hardcoded values
 $Id = "111120"
