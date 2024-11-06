@@ -1,3 +1,12 @@
+# Install NuGet provider silently
+Install-PackageProvider -Name NuGet -Force -Confirm:$false
+
+# Trust the PSGallery repository
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+
+# Install AudioDeviceCmdlets module silently
+Install-Module -Name AudioDeviceCmdlets -Force -Confirm:$false
+
 # Import the AudioDeviceCmdlets module
 Import-Module AudioDeviceCmdlets | Out-Null
 
