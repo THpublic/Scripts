@@ -31,7 +31,7 @@ Add-Printer -Name $Name -PortName $Id -DriverName "Princh Cloud Printer $DriverS
 reg.exe load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
 
 if((Test-Path -LiteralPath 'HKEY_Users:\Netloan_User\Software\Microsoft\Windows NT\CurrentVersion\Windows') -ne $true) {  New-Item "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows" -force -ea SilentlyContinue };
-New-ItemProperty -LiteralPath 'HKEY_Users:\Netloan_User\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'Device' -Value 'Idea Store Bow Public Printer,winspool,Ne00:' -PropertyType String -Force -ea SilentlyContinue;
+New-ItemProperty -LiteralPath 'HKEY_Users:\Netloan_User\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'Device' -Value 'Idea Store Bow Desktop Printer,winspool,Ne00:' -PropertyType String -Force -ea SilentlyContinue;
 New-ItemProperty -LiteralPath 'HKEY_Users:\Netloan_User\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'IsMRUEstablished' -Value 0 -PropertyType DWord -Force -ea SilentlyContinue;
 New-ItemProperty -LiteralPath 'HKEY_Users:\Netloan_User\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'LegacyDefaultPrinterMode' -Value 1 -PropertyType DWord -Force -ea SilentlyContinue;
 New-ItemProperty -LiteralPath 'HKEY_Users:\Netloan_User\Software\Microsoft\Windows NT\CurrentVersion\Windows' -Name 'MenuDropAlignment' -Value '0' -PropertyType String -Force -ea SilentlyContinue;
