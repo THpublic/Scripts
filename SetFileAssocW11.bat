@@ -1,3 +1,6 @@
-c:\SetUserFTA.exe .jpg Applications\photoviewer.dll
-c:\SetUserFTA.exe .png Applications\photoviewer.dll
-c:\SetUserFTA.exe .tiff Applications\photoviewer.dll
+cd C:\
+c:\SetUserFTA.exe
+
+SetUserFTA .jpg Applications\photoviewer.dll
+SetUserFTA .png Applications\photoviewer.dll
+SetUserFTA .tiff Applications\photoviewer.dll
