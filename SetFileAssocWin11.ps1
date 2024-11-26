@@ -1,4 +1,4 @@
-Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy Unrestricted 
 
 reg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
 
