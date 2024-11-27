@@ -1,5 +1,5 @@
 cd C:\
-c:\SetUserFTA.exe
+C:\Windows\System32SetUserFTA.exe
 
 SetUserFTA .jpg Applications\photoviewer.dll
 SetUserFTA .png Applications\photoviewer.dll
