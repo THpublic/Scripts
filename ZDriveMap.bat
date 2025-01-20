@@ -1,4 +1,4 @@
-set folder=c:\users\%username%%\temp
+set folder=c:\users\%username%\temp
 IF EXIST %folder% goto del
 :del
 rmdir "%folder%" /s /q
