@@ -14,7 +14,7 @@ reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Polic
 
 reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Explorer" /v "HubMode" /t REG_DWORD /d 1 /f
 
-REM reg add "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /t REG_SZ /d "wscript.exe \"C:\Windows\system32\invisible.vbs\" \"C:\windows\System32\ZAdriveMap.bat\"" /f
+reg add "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /t REG_SZ /d "wscript.exe \"C:\Windows\system32\invisible.vbs\" \"C:\windows\System32\ZAdriveMap.bat\"" /f
 
 reg load HKU\ISLab_User C:\Users\ISLab_User\NTUSER.DAT
 
