@@ -16,6 +16,8 @@ reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Explo
 
 REM reg add "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /t REG_SZ /d "wscript.exe \"C:\Windows\system32\invisible.vbs\" \"C:\windows\System32\ZdriveMap.bat\"" /f
 
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoDrives" /t REG_DWORD /d 246 /f
+
 reg delete "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /f
 
 reg load HKU\ISLab_User C:\Users\ISLab_User\NTUSER.DAT
