@@ -1,4 +1,4 @@
-Mreg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
+reg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
 
 reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d "0" /f
 
