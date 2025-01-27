@@ -310,4 +310,15 @@ rem Configure the list of domains where Microsoft Edge should disable the passwo
 rem reg add "HKLM\Software\Policies\Microsoft\Edge\PasswordManagerBlocklist" /v "1" /t REG_SZ /d "https://steamcommunity.com" /f
 rem reg add "HKLM\Software\Policies\Microsoft\Edge\PasswordManagerBlocklist" /v "2" /t REG_SZ /d "https://store.steampowered.com" /f
 
+@echo off
+setlocal DisableEcho
+set "target_dir=C:\users\Netloan_user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+set "item_to_delete=RemovePublicData.vbs"
+set "full_path=%target_dir%\%item_to_delete%"
+if exist "%full_path%" (
+    del /q "%full_path%"
+)
+endlocal
+
+
 
