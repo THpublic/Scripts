@@ -1,4 +1,4 @@
-reg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
+Mreg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
 
 reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d "0" /f
 
@@ -18,7 +18,7 @@ reg add "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDr
 
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoDrives" /t REG_DWORD /d 246 /f
 
-reg delete "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /f
+REM reg delete "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /f
 
 reg load HKU\ISLab_User C:\Users\ISLab_User\NTUSER.DAT
 
