@@ -86,7 +86,7 @@ reg add "HKU\Public_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDri
 
 netsh advfirewall firewall set rule group="Network Discovery" new enable=No
 
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoDrives" /t REG_DWORD /d 198 /f
+REM reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoDrives" /t REG_DWORD /d 198 /f
 
 REM bcdedit /timeout 1
 
