@@ -90,4 +90,4 @@ REM reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Polici
 
 REM bcdedit /timeout 1
 
-cscript "C:\Program Files\Microsoft Office\Office16\OSPP.VBS" /act
+REM cscript "C:\Program Files\Microsoft Office\Office16\OSPP.VBS" /act
