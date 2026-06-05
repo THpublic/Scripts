@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<?define Property_Version     = "5.7.3.0" ?>
+
+<!-- this needs to be a constant over all versions -->
+<?define Property_UpgradeCode = "{93665C0C-3E15-4D51-91A7-BE76658AD0A5}" ?>
+
+<!-- a * makes a GUID generated, this makes any USBDLM.MSI version installs over any other one -->
+<?define Property_ProductId = "*" ?>
+<!-- <?define Property_ProductId = "{7BDE23B3-5629-4026-AD48-7F913181889C}" ?> -->
+<?define Property_PackageId = "*" ?>
+
+
+<!-- platform specific stuff -->
+<?if $(var.ProcessorArchitecture)=x64 ?>
+	<?define Property_ComponentCode = "{DE256C4B-A523-4954-80ED-60E5F518D102}" ?>
+	<?define Property_Platform = "x64" ?>
+	<?define Property_PlatformName = "x64" ?>
+	<?define Property_ProgramFiles=ProgramFiles64Folder ?> 	
+	<?define Property_ProductName= "USB Drive Letter Manager (x64)" ?> 	
+<?else ?>
+	<?define Property_ComponentCode = "{DE256C4A-A523-4954-80ED-60E5F518D102}" ?>
+	<?define Property_Platform = "x86" ?>
+	<?define Property_PlatformName = "Win32" ?>
+	<?define Property_ProgramFiles=ProgramFilesFolder ?> 	
+	<?define Property_ProductName= "USB Drive Letter Manager (Win32)" ?> 	
+<?endif ?>
+
+
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Product Id="$(var.Property_ProductId)" UpgradeCode="$(var.Property_UpgradeCode)" Version="$(var.Property_Version)" Manufacturer="uwe-sieber.de" Name="$(var.Property_ProductName)" Language="1033" >
+
+    <Package Id="$(var.Property_PackageId)" Comments="installer database for USB Drive Letter Manager ($(var.Property_PlatformName))" Compressed="yes" Description="$(var.Property_ProductName)" InstallerVersion="200" Keywords="USBDLM,MSI,$(var.Property_PlatformName)" Manufacturer="uwe-sieber.de" ReadOnly="no" Languages="1033" Platform="$(var.Property_Platform)" />
+
+    <Upgrade Id="$(var.Property_UpgradeCode)">
+      <UpgradeVersion Property="REMOVINGTHEOLDVERSION" Minimum="1.0.0.0" 
+        RemoveFeatures="ALL" />
+    </Upgrade>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+        <Directory Id="$(var.Property_ProgramFiles)">
+            <Directory Id="DIR_USBDLM" Name="USBDLM" SourceName="." FileSource=".\">
+                <Component Id="COMP_USBDLM" Guid="$(var.Property_ComponentCode)">
+                    <File Id="FILE_USBDLM_EXE" Name="USBDLM.exe" KeyPath="yes" />
+                    <File Id="FILE_ID01" Name="_edit-ini.cmd" />
+                    <File Id="FILE_ID02" Name="_service_register.cmd" />
+                    <File Id="FILE_ID03" Name="_service_deregister.cmd" />
+                    <File Id="FILE_ID04" Name="_service_start.cmd" />
+                    <File Id="FILE_ID05" Name="_service_stop.cmd" />
+                    <File Id="FILE_ID06" Name="UsbDriveInfo.exe" />
+                    <File Id="FILE_ID07" Name="USBDLM.txt" />
+                    <File Id="FILE_ID08" Name="USBDLM_usr.exe" />
+                    <File Id="FILE_ID09" Name="USBDLM_ger.chm" />
+                    <File Id="FILE_ID10" Name="USBDLM_eng.chm" />
+                    <File Id="FILE_ID11" Name="USBDLM_Licence.txt" />
+                    <File Id="FILE_ID12" Name="USBDLM_Lizenz.txt" />
+<!--                <File Id="FILE_ID13" Name="USBDLM.ini" /> -->
+                    <RegistryValue Id="REG_ID002" Root="HKLM" Key="SYSTEM\CurrentControlSet\Services\Eventlog\Application\USBDLM" Name="TypesSupported" Value="7" Type="integer" />
+                    <RegistryValue Id="REG_ID003" Root="HKLM" Key="SYSTEM\CurrentControlSet\Services\Eventlog\Application\USBDLM" Name="EventMessageFile" Value="%ProgramFiles%\USBDLM\USBDLM.exe" Type="string" />
+                    <RemoveRegistryKey Id="RREG_ID001" Action="removeOnUninstall" Key="SYSTEM\CurrentControlSet\Services\Eventlog\Application\USBDLM" Root="HKLM" />
+                    <RemoveRegistryKey Id="RREG_ID002" Action="removeOnUninstall" Key="SYSTEM\CurrentControlSet\Services\USBDLM" Root="HKLM" />
+
+                    <!-- we have to stop the USBDLM service, otherwise the installer might complain about the running USBDLM_usr.exe -->
+                    <ServiceControl Id="SVCCTL_001" Name="USBDLM" Start="install" Stop="both" Remove="uninstall" Wait="yes" />
+                    <ServiceInstall Id="SVCINST_001" Name="USBDLM" DisplayName="USBDLM" Type="ownProcess" Interactive="no" Start="auto" ErrorControl="normal" />
+                </Component>
+            </Directory>
+        </Directory>
+    </Directory>
+    
+    <Icon Id="USBDLM.ico" SourceFile="USBDLM.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="USBDLM.ico" />
+
+    <Feature Id="FEAT_USBDLM" Display="hidden" Level="1" Title="USBDLM_service">
+        <ComponentRef Id="COMP_USBDLM" />
+    </Feature>
+    
+    <Media Id="1" Cabinet="usbdlmcab.cab" EmbedCab="yes" />
+    
+    <!-- we have to stop the USBDLM service, otherwise the installer might complain about the running USBDLM_usr.exe  -->
+    <CustomAction Id='StopUsbdlmService_Cmd'  FileKey='FILE_USBDLM_EXE' ExeCommand='-silentstop'  Return='ignore' />
+    <CustomAction Id='StartUsbdlmService_Cmd' FileKey='FILE_USBDLM_EXE' ExeCommand='-silentstart' Return='ignore' />
+    
+    <InstallExecuteSequence>
+            <RemoveExistingProducts Before="InstallInitialize" />
+            <Custom Action="StopUsbdlmService_Cmd"  Before="InstallValidate"/>
+<!--             <Custom Action="StopUsbdlmService_Cmd"  After="CostFinalize"/> -->
+            <Custom Action="StartUsbdlmService_Cmd" After="InstallFinalize"/>
+    </InstallExecuteSequence>
+
+    <Property Id="ALLUSERS" Value="1" />
+    <Property Id="ARPCOMMENTS" Value="USB Drive Letter Manager" />
+    <Property Id="ARPURLUPDATEINFO" Value="http://www.uwe-sieber.de/usbdlm_e.html" />
+    <Property Id="ARPURLINFOABOUT" Value="http://www.uwe-sieber.de/usbdlm_e.html" />
+    <Property Id="ARPCONTACT" Value="Uwe Sieber" />
+    <Property Id="ARPNOMODIFY" Value="1" />
+    <!-- <Property Id="ARPSYSTEMCOMPONENT" Value="0" /> with this line it is hidden from ARP, no matter if 1 or 0 -->
+  </Product>
+</Wix>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
