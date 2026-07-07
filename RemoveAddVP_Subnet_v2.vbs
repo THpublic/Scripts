@@ -36,8 +36,8 @@ For Each IPConfig In IPConfigSet
 			objNetwork.AddWindowsPrinterConnection "\\ISB-DFC\Virtual Netloan Printer"
 			SetDefaultPrinter("\\ISB-DFC\Virtual Netloan Printer")
 		case "192.168.6.0"
-			objNetwork.AddWindowsPrinterConnection "\\ISCS_DFC\Virtual Netloan Printer"
-			SetDefaultPrinter("\\ISCS_DFC\Virtual Netloan Printer")
+			objNetwork.AddWindowsPrinterConnection "\\ISCS-DFC\Virtual Netloan Printer"
+			SetDefaultPrinter("\\ISCS-DFC\Virtual Netloan Printer")
 		case "192.168.8.0"
 			objNetwork.AddWindowsPrinterConnection "\\ISCW-DFC\Virtual Netloan Printer"
 			SetDefaultPrinter("\\ISCW-DFC\Virtual Netloan Printer")
