@@ -24,6 +24,8 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\E
 
 REM reg delete "HKU\Netloan_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "ZDriveMap" /f
 
+reg unload HKU\Netloan_User
+
 reg load HKU\ISLab_User C:\Users\ISLab_User\NTUSER.DAT
 
 reg add "HKEY_Users\ISLab_User\Software\Policies\Microsoft\Windows\System" /f
