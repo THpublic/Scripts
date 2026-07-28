@@ -1,5 +1,9 @@
 reg load HKU\Netloan_User C:\Users\Netloan_User\NTUSER.DAT
 
+reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_TrackDocs" /t REG_DWORD /d 0 /f
+
+reg add "HKEY_Users\Netloan_User\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f
+
 reg add "HKEY_Users\Netloan_User\Software\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d "0" /f
 
 reg add "HKEY_Users\Netloan_User\Software\Policies\Microsoft\Windows\System" /f
